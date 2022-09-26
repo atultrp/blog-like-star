@@ -30,7 +30,7 @@ export default function Home() {
       <div className="mt-20">
         <h2 className="custom-font uppercase text-6xl w-1/2 mx-auto leading-snug text-center tracking-wide">Turn your thoughts into a blog.</h2>
         <p className="w-1/2 text-xl mx-auto text-center leading-normal mt-4">
-          Share your thoughts using the Blog Like Star without sharing your personal information.
+          Share your thoughts using the <span className="underline">Blog Like Star</span> without sharing your personal information.
         </p>
 
         <div className="flex space-x-6 justify-center my-8">
