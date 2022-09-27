@@ -4,6 +4,8 @@ import { FaPenNib } from 'react-icons/fa'
 import { BiNotepad } from 'react-icons/bi'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import BlogPage from '../components/Blog/BlogPage';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -35,8 +37,12 @@ export default function Home() {
 
         <div className="flex space-x-6 justify-center my-8">
           <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white hover:bg-[#1b1b1b] border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center">
-            <FaPenNib className="text-lg" />
-            <span>Blog</span>
+            <Link href={"/blog"} >
+              <>
+                <FaPenNib className="text-lg" />
+                <span>Blog</span>
+              </>
+            </Link>
           </button>
           <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white hover:bg-[#1b1b1b] border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center">
             <BiNotepad className="text-xl" />
@@ -53,6 +59,8 @@ export default function Home() {
             - {" "}{quotesData[Math.floor(Math.random() * (quotesData.length + 1))]?.author}
           </p>
         </div>
+
+        <BlogPage />
 
       </div>
     </div>

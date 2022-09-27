@@ -7,6 +7,10 @@ const BlogPage = () => {
       <h2 className="text-4xl custom-font uppercase">Blogs</h2>
       <div>
         <BlogItem />
+        <BlogItem />
+        <BlogItem />
+        <BlogItem />
+        <BlogItem />
       </div>
     </div>
   )
