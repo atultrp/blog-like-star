@@ -4,13 +4,13 @@ import { VscDebugStackframeDot } from 'react-icons/vsc'
 
 const BlogItem = ({ blogData }) => {
   return (
-    <div className="my-3 mx-3">
-      <div class="flex border-2 rounded-lg border-white border-opacity-50 p-8 sm:flex-row flex-col">
-        <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+    <div className="my-3 mx-3 min-h-[200px]">
+      <div className="flex border-2 rounded-lg border-white border-opacity-50 px-8 py-6 sm:flex-row flex-col min-h-[222px]">
+        <div className="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
           <img src={blogData?.imageSrc} alt="" />
         </div>
-        <div class="flex-grow">
-          <h2 class="flex items-center mb-3">
+        <div className="flex-grow">
+          <h2 className="flex items-center mb-3">
             <div className='text-sm font-semibold'>{blogData.author}</div>
             <VscDebugStackframeDot />
             <div className='text-xs'>{blogData.date}</div>
@@ -19,13 +19,13 @@ const BlogItem = ({ blogData }) => {
             <div className='text-lg font-semibold'>
               {blogData.title}
             </div>
-            <p class="leading-relaxed text-base">
+            <p className="leading-relaxed text-base line-clamp-3">
               {blogData.description}
             </p>
             <Link href={""}>
-              <div class="mt-3 text-indigo-500 inline-flex items-center cursor-pointer">
+              <div className="mt-3 text-blue-500 inline-flex items-center cursor-pointer">
                 Read More
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </div>

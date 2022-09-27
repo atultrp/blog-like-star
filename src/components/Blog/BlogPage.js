@@ -18,7 +18,7 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottleoast vegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
     },
     {
       id: 1,
@@ -26,7 +26,7 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollataxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
     },
     {
       id: 1,
@@ -42,14 +42,15 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironi."
     },
   ]
 
   return (
     <div className="px-16 py-6">
       <h2 className="text-4xl custom-font uppercase">Blogs</h2>
-      <div className='flex flex-wrap'>
+      <p className='text-base mt-1'>Take a look in recent Blogs.</p>
+      <div className='flex flex-wrap my-4'>
         {blogData.map((item) => {
           return <div className='sm:w-1/2'>
             <BlogItem blogData={item} />
