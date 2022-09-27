@@ -24,7 +24,7 @@ const Header = () => {
       </ul>
       {/* Blog button */}
       <div className="bg-white text-[#1b1b1b] p-2 rounded-full text-xl cursor-pointer">
-        <Link href={""} ><FaPenNib /></Link>
+        <Link href={"/createBlog"} ><FaPenNib /></Link>
       </div>
     </div>
   )
