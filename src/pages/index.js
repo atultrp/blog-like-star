@@ -30,13 +30,13 @@ export default function Home() {
       </Head>
 
       <div className="mt-20 max-h-screen">
-        <h2 className="custom-font uppercase text-6xl w-1/2 mx-auto leading-snug text-center tracking-wide">Turn your thoughts into a blog.</h2>
+        <h2 className="custom-font uppercase text-6xl w-1/2 mx-auto leading-snug text-center tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-teal-400 via-violet-500 to-teal-400">Turn your thoughts into a blog.</h2>
         <p className="w-1/2 text-xl mx-auto text-center leading-normal mt-4">
           Share your thoughts using the <span>"Blog Like Star"</span> without sharing your personal information.
         </p>
 
         <div className="flex space-x-6 justify-center my-8">
-          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white hover:bg-[#1b1b1b] border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center">
+          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white hover:bg-[#1b1b1b] border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center ">
             <Link href={"/blog"} >
               <>
                 <FaPenNib className="text-lg" />
