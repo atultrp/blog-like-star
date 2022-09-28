@@ -13,16 +13,16 @@ const Header = () => {
         <h1 className="text-4xl font-semibold tracking-wide uppercase custom-font text-transparent bg-clip-text bg-gradient-to-tr from-green-300 via-blue-500 to-green-300">
           <Link href={"/"} >Blog Like Star </Link></h1>
         <ul className="flex space-x-16 text-base font-semibold items-center">
-          <li className={`${activeTab === 0 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(0)}>
+          <li className={`${activeTab === 0 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(0)}>
             <Link href={"/"} >Home</Link>
           </li>
-          <li className={`${activeTab === 1 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(1)}>
+          <li className={`${activeTab === 1 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(1)}>
             <Link href={"/blog"} >Blog</Link>
           </li>
-          <li className={`${activeTab === 2 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(2)}>
+          <li className={`${activeTab === 2 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(2)}>
             <Link href={""} >About</Link>
           </li>
-          <li className={`${activeTab === 3 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(3)}>
+          <li className={`${activeTab === 3 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(3)}>
             <Link href={""} >Contact</Link>
           </li>
           {/* Blog button */}
@@ -38,16 +38,16 @@ const Header = () => {
           <HiMenuAlt1 className="text-4xl text-rose-500" onClick={() => { modal ? setModal(false) : setModal(true) }} />
         </div>
         <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold`}>
-          <li className={`${activeTab === 0 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(0)}>
+          <li className={`${activeTab === 0 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(0)}>
             <Link href={"/"} >Home</Link>
           </li>
-          <li className={`${activeTab === 1 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(1)}>
+          <li className={`${activeTab === 1 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(1)}>
             <Link href={"/"} >Blog</Link>
           </li>
-          <li className={`${activeTab === 2 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(2)}>
+          <li className={`${activeTab === 2 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(2)}>
             <Link href={"/"} >About</Link>
           </li>
-          <li className={`${activeTab === 3 ? "opacity-100 text-rose-500" : "opacity-70"}`} onClick={() => setActiveTab(3)}>
+          <li className={`${activeTab === 3 ? "opacity-100 text-rose-500" : "opacity-70 hover:text-rose-500"}`} onClick={() => setActiveTab(3)}>
             <Link href={"/"} >Contact</Link>
           </li>
         </ul>
