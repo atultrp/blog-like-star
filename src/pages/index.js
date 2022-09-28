@@ -29,14 +29,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="mt-20 max-h-screen">
-        <h2 className="custom-font uppercase text-6xl w-1/2 mx-auto leading-snug text-center tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-teal-400 via-violet-500 to-teal-400">Turn your thoughts into a blog.</h2>
-        <p className="w-1/2 text-xl mx-auto text-center leading-normal mt-4">
+      <div className="mt-10 md:mt-20 max-h-screen">
+        <h2 className="custom-font uppercase text-4xl md:text-6xl md:w-1/2 mx-8 md:mx-auto leading-snug text-center tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-teal-400 via-violet-500 to-teal-400">Turn your thoughts into a blog.</h2>
+        <p className="md:w-1/2 text-base md:text-xl mx-8 md:mx-auto text-center leading-normal mt-4">
           Share your thoughts using the <span>"Blog Like Star"</span> without sharing your personal information.
         </p>
 
         <div className="flex space-x-6 justify-center my-8">
-          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white hover:bg-[#1b1b1b] border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center ">
+          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center  hover:bg-gradient-to-t hover:from-rose-500 hover:to-pink-400">
             <Link href={"/blog"} >
               <>
                 <FaPenNib className="text-lg" />
@@ -44,13 +44,13 @@ export default function Home() {
               </>
             </Link>
           </button>
-          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white hover:bg-[#1b1b1b] border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center">
+          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center hover:bg-gradient-to-t hover:from-rose-500 hover:to-pink-400">
             <BiNotepad className="text-xl" />
             <span>Explore</span>
           </button>
         </div>
 
-        <div className="ml-16 mt-10 w-1/2">
+        <div className="mx-8 md:mx-0 md:ml-16 mt-10 md:w-1/2">
           <h2 className="custom-font uppercase text-2xl ">Quote of the Day</h2>
           <p>
             {quotesData[Math.floor(Math.random() * (quotesData.length + 1))]?.text}

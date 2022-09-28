@@ -47,12 +47,12 @@ const BlogPage = () => {
   ]
 
   return (
-    <div className="px-16 py-6">
-      <h2 className="text-4xl custom-font uppercase">Blogs</h2>
-      <p className='text-base mt-1'>Take a look in recent Blogs.</p>
-      <div className='flex flex-wrap my-4'>
+    <div className="px-8 md:px-16 py-10 md:py-6">
+      <h2 className="text-4xl custom-font uppercase text-center md:text-left">Blogs</h2>
+      <p className='text-base mt-1 text-center md:text-left'>Take a look in recent Blogs.</p>
+      <div className='md:flex flex-wrap my-4'>
         {blogData.map((item) => {
-          return <div className='sm:w-1/2'>
+          return <div className='md:w-1/2'>
             <BlogItem blogData={item} />
           </div>
         })}
