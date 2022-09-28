@@ -29,8 +29,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="mt-10 md:mt-20 max-h-screen">
-        <h2 className="custom-font uppercase text-4xl md:text-6xl md:w-1/2 mx-8 md:mx-auto leading-snug text-center tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-teal-400 via-violet-500 to-teal-400">Turn your thoughts into a blog.</h2>
+      <div className="mt-3 md:mt-6 max-h-screen">
+        <img src="images/upperPagePoster.svg" alt="poster" className='w-96 md:w-[420px] mx-auto' />
+        <h2 className="custom-font font-bold uppercase text-4xl md:text-6xl md:w-1/2 mx-8 md:mx-auto leading-snug text-center tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-teal-400 via-violet-500 to-teal-400">Turn your thoughts into a blog.</h2>
         <p className="md:w-1/2 text-base md:text-xl mx-8 md:mx-auto text-center leading-normal mt-4">
           Share your thoughts using the <span>"Blog Like Star"</span> without sharing your personal information.
         </p>
