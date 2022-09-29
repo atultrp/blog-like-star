@@ -11,7 +11,7 @@ const BlogItem = ({ blogData }) => {
         </div>
         <div className="flex-grow">
           <h2 className="flex items-center mb-3">
-            <div className='text-sm font-semibold'>{blogData.author}</div>
+            <div className='text-sm font-semibold uppercase'>{blogData.author}</div>
             <VscDebugStackframeDot />
             <div className='text-xs'>{blogData.date}</div>
           </h2>
@@ -23,7 +23,7 @@ const BlogItem = ({ blogData }) => {
               {blogData.description}
             </p>
             <Link href={""}>
-              <div className="mt-3 text-[#1b1b1b] font-bold inline-flex items-center cursor-pointer">
+              <div className="mt-3 text-white font-bold inline-flex items-center cursor-pointer">
                 Read More
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>

@@ -14,7 +14,7 @@ const BlogPage = () => {
     },
     {
       id: 1,
-      imageSrc: "assets/avatar0.png",
+      imageSrc: "assets/avatar1.png",
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
@@ -22,7 +22,7 @@ const BlogPage = () => {
     },
     {
       id: 1,
-      imageSrc: "assets/avatar0.png",
+      imageSrc: "assets/avatar2.png",
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
@@ -30,7 +30,7 @@ const BlogPage = () => {
     },
     {
       id: 1,
-      imageSrc: "assets/avatar0.png",
+      imageSrc: "assets/avatar3.png",
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
@@ -38,7 +38,7 @@ const BlogPage = () => {
     },
     {
       id: 1,
-      imageSrc: "assets/avatar0.png",
+      imageSrc: "assets/avatar4.png",
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
