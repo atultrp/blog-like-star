@@ -37,7 +37,7 @@ export default function Home() {
         </p>
 
         <div className="flex space-x-6 justify-center my-8">
-          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center  hover:bg-gradient-to-t hover:from-rose-500 hover:to-pink-400">
+          <button className=" px-6 py-2 rounded-full font-bold text-white border-2 hover:duration-300 hover:scale-110 hover:ease-in-out uppercase flex space-x-2 items-center bg-gradient-to-t from-rose-500 to-pink-400">
             <Link href={"/blog"} >
               <>
                 <FaPenNib className="text-lg" />
@@ -45,14 +45,14 @@ export default function Home() {
               </>
             </Link>
           </button>
-          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center hover:bg-gradient-to-t hover:from-rose-500 hover:to-pink-400">
+          <button className="text-[#1b1b1b] bg-white px-6 py-2 rounded-full font-bold hover:text-white border-2 hover:duration-300 hover:border-white uppercase flex space-x-2 items-center hover:bg-gradient-to-t hover:from-rose-500 hover:to-pink-400 hover:scale-110 hover:ease-in-out">
             <BiNotepad className="text-xl" />
             <span>Explore</span>
           </button>
         </div>
 
-        <div className="mx-8 md:mx-0 md:ml-16 mt-10 md:w-1/2">
-          <h2 className="custom-font uppercase text-2xl ">Quote of the Day</h2>
+        <div className="mx-8 md:mx-0 md:ml-16 mt-10 md:mt-16 md:w-1/2">
+          <h2 className="custom-font uppercase text-4xl font-semibold bg-gradient-to-t from-rose-500 to-pink-400 text-transparent bg-clip-text">Quote of the Day</h2>
           <p>
             {quotesData[Math.floor(Math.random() * (quotesData.length + 1))]?.text}
           </p>

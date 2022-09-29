@@ -4,7 +4,7 @@ import { VscDebugStackframeDot } from 'react-icons/vsc'
 
 const BlogItem = ({ blogData }) => {
   return (
-    <div className="my-3 md:mx-3 min-h-[200px] text-white">
+    <div className="my-3 md:mx-3 min-h-[200px] text-white hover:shadow-lg hover:scale-105 ease-in-out duration-300">
       <div className="flex border-2 rounded-lg bg-gradient-to-t from-rose-500 to-pink-400 border-white border-opacity-50 px-8 py-6 sm:flex-row flex-col min-h-[222px]">
         <div className="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
           <img src={blogData?.imageSrc} alt="" />
