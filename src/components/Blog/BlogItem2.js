@@ -1,5 +1,20 @@
 import React, { useState } from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
+import { BsWhatsapp } from 'react-icons/bs'
+import { TiSocialTwitter } from 'react-icons/ti'
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  RedditShareButton,
+  RedditIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  TwitterShareButton,
+  LinkedinIcon,
+} from 'next-share';
 
 const BlogItem2 = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
@@ -15,7 +30,7 @@ const BlogItem2 = ({ blogData }) => {
   }
 
   return (
-    <div class="py-4 md:px-12 md:py-6 my-2 min-w-full md:min-w-0 md:w-1/2 flex flex-col items-start hover:shadow-xl rounded-2xl">
+    <div class="px-2 py-4 md:px-12 md:py-6 my-2 min-w-full md:min-w-0 md:w-1/2 flex flex-col items-start md:hover:shadow-xl rounded-2xl">
       {/* User Details */}
       <div class="flex items-start justify-between w-full">
         <div className='flex'>
@@ -33,7 +48,7 @@ const BlogItem2 = ({ blogData }) => {
       <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">{blogData.title}</h2>
 
       {/* Blog Description */}
-      <p class="leading-relaxed mb-8">{blogData.description}</p>
+      <p class="leading-relaxed mb-8 line-clamp-4">{blogData.description}</p>
 
       {/* Bottom part */}
       <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
@@ -44,10 +59,18 @@ const BlogItem2 = ({ blogData }) => {
             <path d="M12 5l7 7-7 7"></path>
           </svg>
         </a>
-        <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 cursor-pointer">
-          {likeState ? <FcLike className='text-2xl' onClick={handleLikeClick} /> : <FcLikePlaceholder className='text-2xl' onClick={handleUnlikeClick} />}
+        <span class="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1">
+          {likeState ? <FcLike className='text-2xl cursor-pointer' onClick={handleLikeClick} /> : <FcLikePlaceholder className='text-2xl cursor-pointer' onClick={handleUnlikeClick} />}
           <span className='ml-1'>{likeCount}</span>
         </span>
+        <WhatsappShareButton
+          url={'https://blog-like-star.vercel.app'} >
+          <BsWhatsapp className='text-2xl text-green-500 mr-4 hover:scale-125 ease-in-out duration-200' />
+        </WhatsappShareButton>
+        <TwitterShareButton
+          url={'https://blog-like-star.vercel.app'} >
+          <TiSocialTwitter className='text-4xl text-rose-400 mr-4 hover:scale-125 ease-in-out duration-200' />
+        </TwitterShareButton>
       </div>
     </div>
   )
