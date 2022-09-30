@@ -12,7 +12,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -21,7 +22,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyegan taxidermy. Gastropub indxgo juice poutine.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -30,7 +32,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. GastropubBlue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub"
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. GastropubBlue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -39,7 +42,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -48,7 +52,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironi."
+      description: "Blue bottle crucifix vinyl post-ironi.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -57,7 +62,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -66,7 +72,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyegan taxidermy. Gastropub indxgo juice poutine.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -75,7 +82,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. GastropubBlue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub"
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. GastropubBlue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -84,7 +92,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
+      description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.",
+      clickAction: "/fullBlog"
     },
     {
       id: 1,
@@ -93,7 +102,8 @@ const BlogPage = () => {
       author: "Atul Tripathi",
       date: "14th Oct, 2022",
       title: "Title of the Blog",
-      description: "Blue bottle crucifix vinyl post-ironi."
+      description: "Blue bottle crucifix vinyl post-ironi.",
+      clickAction: "/fullBlog"
     },
   ]
 
