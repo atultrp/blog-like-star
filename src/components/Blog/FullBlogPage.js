@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
-import { BsWhatsapp } from 'react-icons/bs'
+import { BsArrowRight, BsWhatsapp } from 'react-icons/bs'
 import { TiSocialTwitter } from 'react-icons/ti'
 import {
   FacebookShareButton,
@@ -15,6 +15,7 @@ import {
   TwitterShareButton,
   LinkedinIcon,
 } from 'next-share';
+import Link from 'next/link';
 
 const FullBlogPage = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
@@ -71,8 +72,16 @@ const FullBlogPage = ({ blogData }) => {
       {/* Blog Description */}
       <p className="leading-relaxed mb-8 md:px-7">{blogData.description}</p>
 
-      {/* Bottom part */}
-
+      <div className="cursor-pointer w-fit mx-auto my-6 md:my-12">
+        <Link href={"/"}>
+          <div className='text-rose-400 flex items-center space-x-1 hover:scale-110 duration-300 hover:underline hover:underline-offset-8'>
+            <span className='font-semibold'>
+              View All Blogs
+            </span>
+            <BsArrowRight className='text-xl' />
+          </div>
+        </Link>
+      </div>
     </div>
   )
 }

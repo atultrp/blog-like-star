@@ -4,8 +4,8 @@ import { ImBlog } from 'react-icons/im'
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font md:px-8">
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <footer className="border-t-2 border-gray-100 mx-6 md:mx-10 md:px-8">
+      <div className="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a href='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <ImBlog className='text-2xl text-rose-400' />
           <span className="ml-3 text-xl text-rose-400 uppercase custom-font">Blog Like Star</span>
