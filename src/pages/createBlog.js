@@ -3,7 +3,7 @@ import CreateBlog from '../components/Blog/CreateBlog'
 
 const createBlog = () => {
   return (
-    <div>
+    <div className='min-h-screen'>
       <CreateBlog />
     </div>
   )

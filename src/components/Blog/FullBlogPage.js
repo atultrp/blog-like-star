@@ -73,7 +73,7 @@ const FullBlogPage = ({ blogData }) => {
       <p className="leading-relaxed mb-8 md:px-7">{blogData.description}</p>
 
       <div className="cursor-pointer w-fit mx-auto my-6 md:my-12">
-        <Link href={"/"}>
+        <Link href={"/blog"}>
           <div className='text-rose-400 flex items-center space-x-1 hover:scale-110 duration-300 hover:underline hover:underline-offset-8'>
             <span className='font-semibold'>
               View All Blogs

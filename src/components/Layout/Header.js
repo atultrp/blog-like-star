@@ -3,9 +3,11 @@ import Link from 'next/link'
 import { FaPenNib } from 'react-icons/fa'
 import { HiMenuAlt1 } from 'react-icons/hi';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
+import {useRouter} from 'next/router';
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState(0)
+  const router = useRouter()
+  
   // Modal state
   const [modal, setModal] = useState(false);
   const popUpRef = useRef();
@@ -24,16 +26,16 @@ const Header = () => {
         </Link>
         <ul className="flex space-x-16 text-base font-semibold items-center">
           <Link href={"/"} >
-            <li className={`${activeTab === 0 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(0)}>Home</li>
+            <li className={`${router.pathname === "/" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Home</li>
           </Link>
           <Link href={"/blog"} >
-            <li className={`${activeTab === 1 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(1)}>Blog</li>
+            <li className={`${router.pathname === "/blog" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Blog</li>
           </Link>
-          <Link href={"/"} >
-            <li className={`${activeTab === 2 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(2)}>About</li>
+          <Link href={"/about"} >
+            <li className={`${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>About</li>
           </Link>
-          <Link href={"/"} >
-            <li className={`${activeTab === 3 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(3)}>Contact</li>
+          <Link href={"/contact"} >
+            <li className={`${router.pathname === "/contact" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Contact</li>
           </Link>
           {/* Blog button */}
           <Link href={"/createBlog"} >
@@ -51,17 +53,17 @@ const Header = () => {
         </div>
         <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold`} ref={popUpRef}>
           <Link href={"/"} >
-            <li className={`${activeTab === 0 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(0)}>Home</li>
+            <li className={`${router.pathname === "/" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Home</li>
           </Link>
           <Link href={"/blog"} >
-            <li className={`${activeTab === 1 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(1)}>Blog</li>
+            <li className={`${router.pathname === "/blog" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Blog</li>
           </Link>
-          <Link href={"/"} >
-            <li className={`${activeTab === 2 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(2)}>About</li>
+          <Link href={"/about"} >
+            <li className={`${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>About</li>
           </Link>
-          <Link href={"/"} >
-            <li className={`${activeTab === 3 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(3)}>Contact</li>
-          </Link>
+          <Link href={"/contact"} >
+            <li className={`${router.pathname === "/contact" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Contact</li>
+          </Link> 
         </ul>
         <Link href={"/createBlog"}>
           <div className="bg-rose-500 text-white p-2 rounded-full text-xl cursor-pointer hover:scale-110 ease-in-out duration-200 fixed bottom-2 right-2"><FaPenNib /></div>
