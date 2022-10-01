@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import { FaPenNib } from 'react-icons/fa'
 import { HiMenuAlt1 } from 'react-icons/hi';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState(0)
   // Modal state
   const [modal, setModal] = useState(false);
+  const popUpRef = useRef();
+
+  useOnClickOutside(popUpRef, () => {
+    setModal(false)
+    console.log("click outside modal", modal)
+  });
+
   return (
     <>
       {/* Desktop */}
@@ -42,7 +50,7 @@ const Header = () => {
           <h1 className="text-2xl font-bold uppercase cursor-pointer items-center custom-font tracking-widest text-transparent bg-clip-text bg-gradient-to-tr from-green-300 via-blue-500 to-green-300">Blog Like Star</h1>
           <HiMenuAlt1 className="text-4xl text-rose-500" onClick={() => { modal ? setModal(false) : setModal(true) }} />
         </div>
-        <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold`}>
+        <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold`} ref={popUpRef}>
           <Link href={"/"} >
             <li className={`${activeTab === 0 ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`} onClick={() => setActiveTab(0)}>Home</li>
           </Link>
