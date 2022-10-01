@@ -12,7 +12,6 @@ const Header = () => {
 
   useOnClickOutside(popUpRef, () => {
     setModal(false)
-    console.log("click outside modal", modal)
   });
 
   return (
