@@ -111,7 +111,7 @@ const BlogPage = () => {
   useEffect(() => {
     const origin = window.location.host;
 
-    fetch(`http://${origin}/api/get-blogs`).then(res => {
+    fetch(`${origin.includes("localhost") ? "http" : "https"}://${origin}/api/get-blogs`).then(res => {
       return res.json();
     })
       .then((data) => {
