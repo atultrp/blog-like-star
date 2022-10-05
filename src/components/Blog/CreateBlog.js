@@ -12,49 +12,68 @@ const CreateBlog = () => {
   // 5. Desciption
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => console.log("data", data);
 
 
 
   return (
-    <div className='md:mx-16 my-8'>
+    <div className='md:mx-16 my-8 mx-6'>
       <h2 className='text-2xl custom-font text-rose-400 uppercase'>Create your own Blog.</h2>
 
       <div>
         <form className='my-5' onSubmit={handleSubmit(onSubmit)}>
 
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="authorName">
-            Your Name
-          </label>
-          <input name='authorName' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="authorName" type="text" placeholder="Jane"
-            {...register("authorName", {
-              maxLength: 80
-            })}
-          />
-          {errors.authorName && <span class="text-red-500 text-xs italic">80 Characters Only!</span>}
+          <div className='md:grid grid-cols-2 gap-x-20 2xl:grid-cols-3'>
+            <div className='mb-3'>
+              {/* Author Name */}
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="authorName">
+                Your Name
+              </label>
+              <input name='authorName' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="authorName" type="text" placeholder="Jane"
+                {...register("authorName", {
+                  maxLength: 80
+                })}
+              />
+              {errors.authorName && <span class="text-red-500 text-xs italic">80 Characters Only!</span>}
+            </div>
 
-          {/* <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="authorName">
-            Title
-          </label>
-          <input name='authorName' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="authorName" type="text" placeholder="Jane"
-            {...register("authorName", {
-              maxLength: 80
-            })}
-          />
-          {errors.authorName && <span class="text-red-500 text-xs italic">80 Characters Only!</span>}
+            {/* Category */}
+            <div className='mb-3'>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="category">
+                Category
+              </label>
+              <input name='category' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="category" type="text" placeholder="Personal"
+              />
+            </div>
 
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="authorName">
-            Your Name
-          </label>
-          <input name='authorName' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="authorName" type="text" placeholder="Jane"
-            {...register("authorName", {
-              maxLength: 80
-            })}
-          />
-          {errors.authorName && <span class="text-red-500 text-xs italic">80 Characters Only!</span>} */}
+            {/* Title of the blog */}
+            <div className='mb-3'>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
+                Title of the Blog
+              </label>
+              <input name='title' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="title" type="text" placeholder="Today's thought"
+                {...register("title", {
+                  required: true,
+                })}
+              />
+              {errors.title && <span class="text-red-500 text-xs italic">This field is required!</span>}
+            </div>
+          </div>
 
+          {/* Content of the blog */}
+          <div className='mb-3'>
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="content">
+              Content of the Blog
+            </label>
+            <textarea rows={10} name='content' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="content" type="text" placeholder="Personal"
+              {...register("content", {
+                required: true,
+              })}
+            />
+            {errors.content && <span class="text-red-500 text-xs italic">This field is required!</span>}
+          </div>
 
-          <button type='submit'>Publish</button>
+          <button type='submit' className='mt-2 px-4 py-2 bg-rose-500 text-white rounded-md hover:bg-rose-600'>Publish</button>
         </form>
       </div>
 
