@@ -120,7 +120,6 @@ const BlogPage = () => {
       })
   }, [])
 
-
   return (
     <div className="px-4 md:px-16 py-10 md:py-6">
       <h2 className="text-4xl custom-font uppercase text-center md:text-left bg-gradient-to-t from-rose-500 to-pink-400 text-transparent bg-clip-text font-semibold">Blogs</h2>
