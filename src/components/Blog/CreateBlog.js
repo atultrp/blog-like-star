@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Input from '../shared/Input'
 import TextArea from '../shared/TextArea'
 import { useForm } from "react-hook-form";
@@ -13,6 +13,18 @@ const CreateBlog = () => {
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log("data", data);
+
+
+  const apiFunc = async () => {
+    let pins = await fetch("http://localhost:3000/api/staticData");
+    let pinJson = await pins.json();
+    console.log("data api", pinJson)
+  }
+
+  useEffect(() => {
+    apiFunc()
+  }, [])
+  
 
 
 
