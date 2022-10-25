@@ -117,6 +117,9 @@ const BlogPage = () => {
         console.log("api Data", data)
         setBlogData(data)
       })
+      .catch(err => {
+        console.error(err)
+      })
   }, [])
 
   return (
