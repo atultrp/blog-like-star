@@ -110,7 +110,7 @@ const BlogPage = () => {
   const [blogData, setBlogData] = useState()
   useEffect(() => {
     const origin = window.location.href;
-    fetch(`${origin}/api/get-blogs`).then(res => {
+    fetch(`${origin}api/get-blogs`).then(res => {
       return res.json();
     })
       .then((data) => {
