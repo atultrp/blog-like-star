@@ -112,6 +112,7 @@ const BlogPage = () => {
   useEffect(() => {
     const origin = window.location.href;
     fetch(`${origin}api/get-blogs`).then(res => {
+      console.log("res 2",res)
       return res.json();
     })
       .then((data) => {
@@ -122,6 +123,14 @@ const BlogPage = () => {
         console.error(err)
       })
   }, [])
+
+
+  useEffect(()=> {
+    const origin = window.location.href;
+    fetch(`${origin}api/hello`).then(res => {
+      console.log("res",res)
+    })
+  },[])
 
   return (
     <div className="px-4 md:px-16 py-10 md:py-6">
