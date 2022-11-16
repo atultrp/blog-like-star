@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import BlogItem from './BlogItem'
 import BlogItem2 from './BlogItem2'
 
-const BlogPage = () => {
+const BlogPage = ({data}) => {
+
 
   // const blogData = [
   //   {
@@ -107,7 +108,6 @@ const BlogPage = () => {
   //   },
   // ]
 
-
   const [blogData, setBlogData] = useState()
   useEffect(() => {
     const origin = window.location.href;
@@ -145,7 +145,7 @@ const BlogPage = () => {
       </div> */}
 
       <div className='my-4 flex flex-wrap'>
-        {blogData?.map((item) => {
+        {data && data?.map((item) => {
           return <BlogItem2 blogData={item} />
         })}
       </div>
