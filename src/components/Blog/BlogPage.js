@@ -107,7 +107,7 @@ const BlogPage = () => {
   //   },
   // ]
 
-  
+
   const [blogData, setBlogData] = useState()
   useEffect(() => {
     const origin = window.location.href;
