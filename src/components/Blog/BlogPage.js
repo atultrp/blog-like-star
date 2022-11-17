@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import BlogItem from './BlogItem'
 import BlogItem2 from './BlogItem2'
+import useSWR from 'swr';
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const BlogPage = ({data}) => {
+const BlogPage = () => {
+
+  const { data, error } = useSWR('api/test', fetcher);
+  console.log("blogdata",data)
+
 
 
   // const blogData = [
@@ -116,7 +122,7 @@ const BlogPage = ({data}) => {
       return res.json();
     })
       .then((data) => {
-        console.log("api Data", data)
+        // console.log("api Data", data)
         setBlogData(data)
       })
       .catch(err => {
