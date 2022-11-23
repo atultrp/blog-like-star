@@ -9,8 +9,6 @@ const BlogPage = () => {
   const { data, error } = useSWR('api/test', fetcher);
   console.log("blogdata",data)
 
-
-
   // const blogData = [
   //   {
   //     id: 1,
@@ -115,26 +113,27 @@ const BlogPage = () => {
   // ]
 
   const [blogData, setBlogData] = useState()
-  useEffect(() => {
-    const origin = window.location.href;
-    fetch(`${origin}api/get-blogs`).then(res => {
-      console.log("res 2",res)
-      return res.json();
-    })
-      .then((data) => {
-        // console.log("api Data", data)
-        setBlogData(data)
-      })
-      .catch(err => {
-        console.error(err)
-      })
-  }, [])
+  // useEffect(() => {
+  //   const origin = window.location.href;
+  //   fetch(`${origin}api/get-blogs`).then(res => {
+  //     console.log("res 2",res)
+  //     return res.json();
+  //   })
+  //     .then((data) => {
+  //       // console.log("api Data", data)
+  //       setBlogData(data)
+  //     })
+  //     .catch(err => {
+  //       console.error(err)
+  //     })
+  // }, [])
 
 
   useEffect(()=> {
     const origin = window.location.href;
     fetch(`${origin}api/hello`).then(res => {
       console.log("res",res)
+      setBlogData(res)
     })
   },[])
 
@@ -152,6 +151,7 @@ const BlogPage = () => {
 
       <div className='my-4 flex flex-wrap'>
         {data && data?.map((item) => {
+          console.log("item",item)
           return <BlogItem2 blogData={item} />
         })}
       </div>
