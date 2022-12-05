@@ -3,22 +3,16 @@ import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
 import { BsWhatsapp } from 'react-icons/bs'
 import { TiSocialTwitter } from 'react-icons/ti'
 import {
-  FacebookShareButton,
-  FacebookIcon,
-  PinterestShareButton,
-  PinterestIcon,
-  RedditShareButton,
-  RedditIcon,
   WhatsappShareButton,
-  WhatsappIcon,
-  LinkedinShareButton,
   TwitterShareButton,
-  LinkedinIcon,
 } from 'next-share';
+
+import { useRouter } from 'next/router';
 
 const BlogItem2 = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
   const [likeCount, setLikeCount] = useState(0)
+  const router = useRouter();
 
   const handleLikeClick = () => {
     setLikeState(false)
@@ -27,6 +21,10 @@ const BlogItem2 = ({ blogData }) => {
   const handleUnlikeClick = () => {
     setLikeState(true)
     setLikeCount(likeCount + 1)
+  }
+
+  const handleReadMoreClick = (id) => {
+    router.push(`/fullBlog/?id=${id}`)
   }
 
   return (
@@ -53,7 +51,7 @@ const BlogItem2 = ({ blogData }) => {
       {/* Bottom part */}
       <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
         {/* Read more */}
-        <a href={blogData.clickAction} className="text-indigo-500 inline-flex items-center cursor-pointer">Read More
+        <a onClick={()=> handleReadMoreClick(blogData?.id)} className="text-indigo-500 inline-flex items-center cursor-pointer">Read More
           <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"></path>
             <path d="M12 5l7 7-7 7"></path>
