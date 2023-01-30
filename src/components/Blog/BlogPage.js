@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import BlogItem from './BlogItem'
+import React from 'react'
 import BlogItem2 from './BlogItem2'
 import useSWR from 'swr';
-const fetcher = (url) => fetch(url).then((res) => res.json());
-// import jsonBlogData from './../../json/data.json'
 
 const BlogPage = () => {
-  const [blogData, setBlogData] = useState()
 
   const { data, error } = useSWR("/api/get-blogs", (url) =>
     fetch(url).then((res) => res.json())
@@ -18,7 +14,6 @@ const BlogPage = () => {
       <p className='text-base mt-1 text-center md:text-left'>Take a look in recent Blogs.</p>
       <div className='my-4 flex flex-wrap'>
         {data && data?.map((item) => {
-          console.log("item", item)
           return <BlogItem2 blogData={item} />
         })}
       </div>

@@ -1,18 +1,17 @@
 import React from 'react'
 import FullBlogPage from '../components/Blog/FullBlogPage'
-import jsonBlogData from './../data/data.json'
+import blogData from './../data/data.json'
 import { useRouter } from 'next/router';
 
 const fullBlog = () => {
 
   const router = useRouter();
-  const id = router.query.id
+  const blogId = router.query.id
 
   return (
     <>
-      {jsonBlogData?.map(blog => {
-        console.log("id", blog.id)
-        if (blog.id == id) {
+      {blogData?.map(blog => {
+        if (blog.id == blogId) {
           return <div>
             <FullBlogPage blogData={blog} />
           </div>

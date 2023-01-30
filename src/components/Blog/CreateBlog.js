@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Input from '../shared/Input'
 import TextArea from '../shared/TextArea'
 import { useForm } from "react-hook-form";
+import { useRouter } from 'next/router';
 
 const CreateBlog = () => {
 
@@ -9,12 +10,13 @@ const CreateBlog = () => {
   // 2. Category
   // 3. Avatar
   // 4. Title of the Blog
-  // 5. Desciption
+  // 5. Content of the Blog
+
+  const router = useRouter();
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log("data", data)
     data && fetch("/api/save-blog", {
       method: "POST",
       headers: {
@@ -22,6 +24,7 @@ const CreateBlog = () => {
       },
       body: JSON.stringify(data),
     });
+    router.push('/blog');
   };
 
 
