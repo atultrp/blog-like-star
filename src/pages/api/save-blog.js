@@ -26,6 +26,7 @@ export default (req, res) => {
   };
 
   data.push(newBlog);
+  console.log("data", data);
 
   fs.writeFileSync("src/data/data.json", Buffer.from(JSON.stringify(data)).toString());
 
