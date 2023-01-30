@@ -1,6 +1,6 @@
 import React from 'react'
 import FullBlogPage from '../components/Blog/FullBlogPage'
-import jsonBlogData from './../json/data.json'
+import jsonBlogData from './../data/data.json'
 import { useRouter } from 'next/router';
 
 const fullBlog = () => {

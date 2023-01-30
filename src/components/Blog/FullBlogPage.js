@@ -69,8 +69,8 @@ const FullBlogPage = ({ blogData }) => {
       {/* Title */}
       <h2 className="sm:text-3xl text-2xl md:px-7 title-font font-medium text-gray-900 mt-4 mb-4">{blogData.title}</h2>
 
-      {/* Blog Description */}
-      <p className="leading-relaxed mb-8 md:px-7">{blogData.description}</p>
+      {/* Blog content */}
+      <p className="leading-relaxed mb-8 md:px-7">{blogData.content}</p>
 
       <div className="cursor-pointer w-fit mx-auto my-6 md:my-12">
         <Link href={"/blog"}>

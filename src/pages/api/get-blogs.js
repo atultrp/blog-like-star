@@ -1,12 +1,5 @@
-import * as fs from 'fs'
+import testData from "../../data/data.json"
 
-export default function handler(req, res) {
-
-  fs.readFile('src/json/data.json','utf8', (err, data) => {
-    if(err) {
-      res.status(500).json("Internal Server Error")
-    }
-    res.status(200).json(JSON.parse(data))
-  })
-
-}
+export default (req, res) => {
+  res.status(200).json(testData);
+};

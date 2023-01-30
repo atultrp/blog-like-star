@@ -45,8 +45,8 @@ const BlogItem2 = ({ blogData }) => {
       {/* Title */}
       <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">{blogData.title}</h2>
 
-      {/* Blog Description */}
-      <p className="leading-relaxed mb-8 line-clamp-4">{blogData.description}</p>
+      {/* Blog Content */}
+      <p className="leading-relaxed mb-8 line-clamp-4">{blogData.content}</p>
 
       {/* Bottom part */}
       <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">

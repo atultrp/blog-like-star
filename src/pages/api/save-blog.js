@@ -1,35 +1,33 @@
-import * as fs from 'fs'
+import fs from "fs";
+import data from "../../data/data.json";
 
-export default function handler(req, res) {
-  var updatedData = []
-  fs.readFile('src/json/data.json', 'utf-8', (err, data) => {
-    if (err) {
-      res.status(500).json("Internal Server Error")
-    }
-    var allBlogs = data
-    // res.status(200).json(JSON.parse(data))
-    updatedData = allBlogs.push({
-      "id": 13948209,
-      "imageSrc": "assets/avatar5.png",
-      "category": "Personal",
-      "author": "Atul Tripathi",
-      "date": "14th Oct, 2022",
-      "title": "Title of the Blog",
-      "description": "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.",
-      "clickAction": "/fullBlog"
-    })
-    fs.writeFile('src/json/data.json', updatedData, (err, data) => {
-      console.log("data")
-    })
-  })
+export default (req, res) => {
 
-  // fs.appendFile('src/json/data.json','Heya', ()=> {
-  //   console.log("done")
-  // })
+  let monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  let randomIndex = Math.floor(Math.random() * 18);
 
+  const DateFormatFunction = (date) => {
+    const newDate = new Date(date);
+    const month = newDate.getMonth();
+    const day = newDate.getDate();
+    const year = newDate.getFullYear();
+    const formattedDate = `${day}th ${monthsArray[month]}, ${year}`;
+    return formattedDate;
+  }
 
+  const newBlog = {
+    "id": data.length + 1,
+    "imageSrc": `assets/avatar${randomIndex}.png`,
+    "category": req.body.category ? req.body.category : "General",
+    "author": req.body.author ? req.body.author : "Unknown",
+    "date": DateFormatFunction(new Date()),
+    "title": req.body.title,
+    "content": req.body.content
+  };
 
-  res.status(200).json(updatedData)
+  data.push(newBlog);
 
+  fs.writeFileSync("src/data/data.json", Buffer.from(JSON.stringify(data)).toString());
 
-}
+  res.status(200).json({ message: "Blog added successfully." });
+};

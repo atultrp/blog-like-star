@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../shared/Input'
 import TextArea from '../shared/TextArea'
 import { useForm } from "react-hook-form";
@@ -12,20 +12,17 @@ const CreateBlog = () => {
   // 5. Desciption
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log("data", data);
 
-
-  const apiFunc = async () => {
-    let pins = await fetch("http://localhost:3000/api/staticData");
-    let pinJson = await pins.json();
-    console.log("data api", pinJson)
-  }
-
-  useEffect(() => {
-    apiFunc()
-  }, [])
-  
-
+  const onSubmit = (data) => {
+    console.log("data", data)
+    data && fetch("/api/save-blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
 
 
   return (
@@ -38,15 +35,15 @@ const CreateBlog = () => {
           <div className='md:grid grid-cols-2 gap-x-20 2xl:grid-cols-3'>
             <div className='mb-3'>
               {/* Author Name */}
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="authorName">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="author">
                 Your Name
               </label>
-              <input name='authorName' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="authorName" type="text" placeholder="Jane"
-                {...register("authorName", {
+              <input name='author' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="author" type="text" placeholder="Jane"
+                {...register("author", {
                   maxLength: 80
                 })}
               />
-              {errors.authorName && <span class="text-red-500 text-xs italic">80 Characters Only!</span>}
+              {errors.author && <span class="text-red-500 text-xs italic">80 Characters Only!</span>}
             </div>
 
             {/* Category */}
@@ -55,6 +52,9 @@ const CreateBlog = () => {
                 Category
               </label>
               <input name='category' class="appearance-none block w-full border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="category" type="text" placeholder="Personal"
+                {...register("category", {
+                  maxLength: 40
+                })}
               />
             </div>
 
