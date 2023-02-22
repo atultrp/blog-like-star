@@ -34,9 +34,6 @@ const Header = () => {
           <Link href={"/about"} >
             <li className={`${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>About</li>
           </Link>
-          <Link href={"/contact"} >
-            <li className={`${router.pathname === "/contact" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Contact</li>
-          </Link>
           {/* Blog button */}
           <Link href={"/createBlog"} >
             <div className="bg-rose-500 text-white p-2 rounded-full text-xl cursor-pointer hover:scale-125 ease-in-out duration-200"><FaPenNib /></div>
@@ -61,9 +58,6 @@ const Header = () => {
           <Link href={"/about"} >
             <li className={`${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>About</li>
           </Link>
-          <Link href={"/contact"} >
-            <li className={`${router.pathname === "/contact" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Contact</li>
-          </Link> 
         </ul>
         <Link href={"/createBlog"}>
           <div className="bg-rose-500 text-white p-2 rounded-full text-xl cursor-pointer hover:scale-110 ease-in-out duration-200 fixed bottom-2 right-2"><FaPenNib /></div>
