@@ -18,8 +18,6 @@ const TextArea = ({
   //   setLabelUp(false)
   // });
 
-  console.log("labelUp", labelUp)
-
   return (
     <div className={`relative ${classes}`}>
       <label className={`absolute ${labelUp ? "ml-2 -mt-3 px-1 bg-white text-xs" + focusLabel : "ml-3 mt-1 text-sm"} duration-300`}>{label}</label>
