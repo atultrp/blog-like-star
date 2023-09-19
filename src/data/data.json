@@ -1,1 +1,47 @@
-[{"id":1,"imageSrc":"assets/avatar0.png","category":"Tech","author":"Rita Batalha","date":"6th Sept, 2022","title":"Top Trends for Web3 in 2023","content":"The term “Web 3.0 or Web3” was coined in 2014 by Ethereum co-founder Gavin Wood, and the idea gained interest in 2021 from cryptocurrency enthusiasts and large tech companies. Web3 is still evolving and being defined, as such, there is not an established and universally accepted definition. Yet, Packy McCormick, an investor who helped disseminate Web3, has defined it as “the internet owned by the builders and users, orchestrated with tokens.” The concept of Web3 can be both puzzling and vague, and to help provide an understanding, here is a quick review of the evolution of the internet over the years: Web 1.0 — The Static Web (around 1990–2005). It was made of read-only webpages that, by and large, lacked much in the way of interactive features. Content generation was limited, and information was hard to find. Web 2.0 — The Dynamic Web ( from around 2004 ). Made of new software applications built on the web. Most of the value is generated from companies such as Google, Apple, Amazon, and Facebook. The vision of Web3 tends to be a more democratic version of today’s online and digital works, where Web3platforms could give creators and users a way to monetize their activity and contributions. For example, PIXIE a crypto version of TikTok or Instagram, rewards all social interactions with cryptocurrency PIX, which is called “social content mining."},{"id":2,"imageSrc":"assets/avatar5.png","category":"Personal","author":"Atul Tripathi","date":"14th Oct, 2022","title":"Title of the Blog","content":"Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."},{"id":3,"imageSrc":"assets/avatar3.png","category":"Tech","author":"Tom","date":"30th Jan, 2023","title":"System architecture","content":"System architecture is the high-level design of a software or hardware system, which defines the structure, behavior, and interactions of the components that make up the system. It provides a blueprint for the system and its components, specifying the interfaces, relationships, and protocols that allow the components to work together. System architecture is concerned with the overall design and organization of a system, and is typically used to guide the development and evolution of the system over time. The goal of system architecture is to create a system that is well-organized, scalable, and adaptable to changing requirements, while also being easy to maintain and understand."},{"id":4,"imageSrc":"assets/avatar12.png","category":"Tech","author":"Harry","date":"30th Jan, 2023","title":"explain about react-window package","content":"React-window is a package for efficiently rendering large lists and tabular data in React. It provides components that use virtualization to only render items that are visible in the viewport, improving the overall performance of your application. This makes it well suited for rendering lists with a large number of items, as well as tables with many columns, without compromising on interactivity or the ability to scroll through the data smoothly. It is also optimized for touch and keyboard interaction. "},{"id":5,"imageSrc":"assets/avatar6.png","category":"Movie","author":"Tom Cruise","date":"22th Feb, 2023","title":"Mission Impossible","content":"\"Mission Impossible\" is a popular American espionage and action film franchise that began in 1996 with the release of the first film of the same name. The films center around the character of Ethan Hunt, a skilled and daring field agent who works for the Impossible Missions Force (IMF), a fictional secret agency tasked with carrying out dangerous and covert operations.\n\nThe \"Mission Impossible\" franchise is known for its high-octane action sequences, intricate plots, and suspenseful storytelling. Throughout the series, Ethan Hunt and his team face seemingly impossible challenges and must use their wits, skills, and courage to complete their missions successfully.\n\nThe phrase \"mission impossible\" is also used more generally to refer to any task or goal that seems incredibly difficult or even impossible to achieve. However, the characters in the \"Mission Impossible\" franchise always manage to find a way to overcome the odds and complete their missions, even when things seem impossible."}]
+[
+  {
+    "id": 1,
+    "imageSrc": "assets/avatar0.png",
+    "category": "Tech",
+    "author": "Rita Batalha",
+    "date": "6th Sept, 2022",
+    "title": "Top Trends for Web3 in 2023",
+    "content": "The term “Web 3.0 or Web3” was coined in 2014 by Ethereum co-founder Gavin Wood, and the idea gained interest in 2021 from cryptocurrency enthusiasts and large tech companies. Web3 is still evolving and being defined, as such, there is not an established and universally accepted definition. Yet, Packy McCormick, an investor who helped disseminate Web3, has defined it as “the internet owned by the builders and users, orchestrated with tokens.” The concept of Web3 can be both puzzling and vague, and to help provide an understanding, here is a quick review of the evolution of the internet over the years: Web 1.0 — The Static Web (around 1990–2005). It was made of read-only webpages that, by and large, lacked much in the way of interactive features. Content generation was limited, and information was hard to find. Web 2.0 — The Dynamic Web ( from around 2004 ). Made of new software applications built on the web. Most of the value is generated from companies such as Google, Apple, Amazon, and Facebook. The vision of Web3 tends to be a more democratic version of today’s online and digital works, where Web3platforms could give creators and users a way to monetize their activity and contributions. For example, PIXIE a crypto version of TikTok or Instagram, rewards all social interactions with cryptocurrency PIX, which is called “social content mining."
+  },
+  {
+    "id": 2,
+    "imageSrc": "assets/avatar5.png",
+    "category": "Personal",
+    "author": "Atul Tripathi",
+    "date": "14th Oct, 2022",
+    "title": "Title of the Blog",
+    "content": "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, four dollar toast vegan taxidermy. Gastropub indxgo juice poutine."
+  },
+  {
+    "id": 3,
+    "imageSrc": "assets/avatar3.png",
+    "category": "Tech",
+    "author": "Tom",
+    "date": "30th Jan, 2023",
+    "title": "System architecture",
+    "content": "System architecture is the high-level design of a software or hardware system, which defines the structure, behavior, and interactions of the components that make up the system. It provides a blueprint for the system and its components, specifying the interfaces, relationships, and protocols that allow the components to work together. System architecture is concerned with the overall design and organization of a system, and is typically used to guide the development and evolution of the system over time. The goal of system architecture is to create a system that is well-organized, scalable, and adaptable to changing requirements, while also being easy to maintain and understand."
+  },
+  {
+    "id": 4,
+    "imageSrc": "assets/avatar12.png",
+    "category": "Tech",
+    "author": "Harry",
+    "date": "30th Jan, 2023",
+    "title": "explain about react-window package",
+    "content": "React-window is a package for efficiently rendering large lists and tabular data in React. It provides components that use virtualization to only render items that are visible in the viewport, improving the overall performance of your application. This makes it well suited for rendering lists with a large number of items, as well as tables with many columns, without compromising on interactivity or the ability to scroll through the data smoothly. It is also optimized for touch and keyboard interaction. "
+  },
+  {
+    "id": 5,
+    "imageSrc": "assets/avatar6.png",
+    "category": "Movie",
+    "author": "Tom Cruise",
+    "date": "22th Feb, 2023",
+    "title": "Mission Impossible",
+    "content": "\"Mission Impossible\" is a popular American espionage and action film franchise that began in 1996 with the release of the first film of the same name. The films center around the character of Ethan Hunt, a skilled and daring field agent who works for the Impossible Missions Force (IMF), a fictional secret agency tasked with carrying out dangerous and covert operations.\n\nThe \"Mission Impossible\" franchise is known for its high-octane action sequences, intricate plots, and suspenseful storytelling. Throughout the series, Ethan Hunt and his team face seemingly impossible challenges and must use their wits, skills, and courage to complete their missions successfully.\n\nThe phrase \"mission impossible\" is also used more generally to refer to any task or goal that seems incredibly difficult or even impossible to achieve. However, the characters in the \"Mission Impossible\" franchise always manage to find a way to overcome the odds and complete their missions, even when things seem impossible."
+  }
+]

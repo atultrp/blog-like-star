@@ -4,7 +4,7 @@ import TextArea from '../shared/TextArea'
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/router';
 
-const CreateBlog = () => {
+const CreateBlog = ({ handleBlogSubmit }) => {
 
   // 1. Author
   // 2. Category
@@ -17,14 +17,21 @@ const CreateBlog = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    data && fetch("/api/save-blog", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    router.push('/blog');
+    // data && fetch("/api/save-blog", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+    // router.push('/blog');
+    let blog = { ...data }
+
+    if (data) {
+      blog["category"] = blog?.category || 'General'
+      blog["author"] = blog?.author || 'Anonymous'
+      handleBlogSubmit(blog)
+    }
   };
 
 

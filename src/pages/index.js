@@ -1,16 +1,24 @@
 import Head from 'next/head'
-// import { RiSingleQuotesL, RiSingleQuotesR } from 'react-icons/ri'
 import { FaPenNib } from 'react-icons/fa'
 import { BiNotepad } from 'react-icons/bi'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import BlogPage from '../components/Blog/BlogPage';
 import Link from 'next/link';
+import { readBlogData } from '../components/helper/request';
 
 export default function Home() {
-
   const [quotesData, setQuotesData] = useState([])
+  const [allBlogData, setAllBlogData] = useState([])
 
+  // Reading data from firebase
+  useEffect(() => {
+    readBlogData().then((data) => {
+      setAllBlogData(data)
+    })
+  }, [])
+
+  // Quotes API
   useEffect(() => {
     axios.get('https://type.fit/api/quotes')
       .then(res => {
@@ -61,7 +69,7 @@ export default function Home() {
           </p>
         </div>
 
-        <BlogPage />
+        <BlogPage data={allBlogData} />
       </div>
     </div>
   )

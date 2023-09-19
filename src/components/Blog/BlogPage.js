@@ -2,11 +2,12 @@ import React from 'react'
 import BlogItem2 from './BlogItem2'
 import useSWR from 'swr';
 
-const BlogPage = () => {
+const BlogPage = ({ data }) => {
 
-  const { data, error } = useSWR("/api/get-blogs", (url) =>
-    fetch(url).then((res) => res.json())
-  );
+  // const { data, error } = useSWR("/api/get-blogs", (url) =>
+  //   fetch(url).then((res) => res.json())
+  // );
+
 
   return (
     <div className="px-4 md:px-16 py-10 md:py-6">
