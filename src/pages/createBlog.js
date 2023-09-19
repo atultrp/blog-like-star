@@ -8,7 +8,7 @@ const createBlog = () => {
   const dbInstance = collection(database, 'blogsData');
 
   const handleBlogSubmit = async (data) => {
-    let blog = { ...data, imageSrc: `assets/avatar${randomNum(17)}.png`, date: getDateFormat() }
+    let blog = { ...data, imageSrc: `assets/avatar${randomNum(17)}.png`, date: getDateFormat(), likes: 0 }
     await addDoc(dbInstance, { ...blog })
   }
 
