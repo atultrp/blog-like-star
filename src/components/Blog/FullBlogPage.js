@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
 import { BsArrowRight, BsWhatsapp } from 'react-icons/bs'
 import { TiSocialTwitter } from 'react-icons/ti'
@@ -16,10 +16,12 @@ import {
   LinkedinIcon,
 } from 'next-share';
 import Link from 'next/link';
+import { doc, updateDoc } from 'firebase/firestore';
+import { database } from '../../firebase/config'
 
 const FullBlogPage = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
-  const [likeCount, setLikeCount] = useState(0)
+  const [likeCount, setLikeCount] = useState(parseInt(blogData?.likes))
 
   const handleLikeClick = () => {
     setLikeState(false)
@@ -29,6 +31,17 @@ const FullBlogPage = ({ blogData }) => {
     setLikeState(true)
     setLikeCount(likeCount + 1)
   }
+
+  const updateLikeCount = () => {
+    updateDoc(doc(database, "blogsData", blogData?.id), {
+      likes: likeCount
+    });
+  }
+
+  useEffect(() => {
+    updateLikeCount()
+  }, [likeCount])
+
   return (
     <div className='mx-3 px-3 md:mx-10 md:px-2 my-4'>
       <div className="md:flex items-center md:px-7 justify-between w-full border-b-2 border-gray-100 py-4 sticky top-14 md:top-[88px] z-30 bg-white">
