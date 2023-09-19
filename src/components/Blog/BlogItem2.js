@@ -20,16 +20,13 @@ const BlogItem2 = ({ blogData }) => {
   const handleLikeClick = () => {
     setLikeState(false)
     setLikeCount(likeCount - 1)
-    // updateLikeCount()
   }
   const handleUnlikeClick = () => {
     setLikeState(true)
     setLikeCount(likeCount + 1)
-    // updateLikeCount()
   }
 
   const updateLikeCount = () => {
-    console.log("heya ", likeCount)
     updateDoc(doc(database, "blogsData", blogData?.id), {
       likes: likeCount
     });
