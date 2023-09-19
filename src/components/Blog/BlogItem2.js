@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
 import { BsWhatsapp } from 'react-icons/bs'
 import { TiSocialTwitter } from 'react-icons/ti'
@@ -8,20 +8,36 @@ import {
 } from 'next-share';
 
 import { useRouter } from 'next/router';
+import { doc, updateDoc } from 'firebase/firestore';
+import { database } from '../../firebase/config'
+
 
 const BlogItem2 = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
-  const [likeCount, setLikeCount] = useState(blogData?.likes)
+  const [likeCount, setLikeCount] = useState(parseInt(blogData?.likes))
   const router = useRouter();
 
   const handleLikeClick = () => {
     setLikeState(false)
     setLikeCount(likeCount - 1)
+    // updateLikeCount()
   }
   const handleUnlikeClick = () => {
     setLikeState(true)
     setLikeCount(likeCount + 1)
+    // updateLikeCount()
   }
+
+  const updateLikeCount = () => {
+    console.log("heya ", likeCount)
+    updateDoc(doc(database, "blogsData", blogData?.id), {
+      likes: likeCount
+    });
+  }
+
+  useEffect(() => {
+    updateLikeCount()
+  }, [likeCount])
 
   const handleReadMoreClick = (id) => {
     router.push(`/fullBlog/?id=${id}`)
