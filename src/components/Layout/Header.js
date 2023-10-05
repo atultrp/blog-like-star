@@ -3,11 +3,14 @@ import Link from 'next/link'
 import { FaPenNib } from 'react-icons/fa'
 import { HiMenuAlt1 } from 'react-icons/hi';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+import { AiFillHome } from 'react-icons/ai';
+import { IoReader } from 'react-icons/io5'
+import { MdInfo } from 'react-icons/md'
 
 const Header = () => {
   const router = useRouter()
-  
+
   // Modal state
   const [modal, setModal] = useState(false);
   const popUpRef = useRef();
@@ -43,20 +46,29 @@ const Header = () => {
       </nav>
 
       {/* Mobile */}
-      <nav className="md:hidden py-3 px-4 shadow-md sticky top-0 z-50 items-center bg-white">
+      <nav className="md:hidden py-3 px-4 shadow-md sticky top-0 z-50 items-center bg-white" ref={popUpRef}>
         <div className=" flex justify-between items-center">
           <h1 className="text-2xl font-bold uppercase cursor-pointer items-center custom-font tracking-widest text-transparent bg-clip-text bg-gradient-to-tr from-green-300 via-blue-500 to-green-300">Blog Like Star</h1>
           <HiMenuAlt1 className="text-4xl text-rose-500" onClick={() => { modal ? setModal(false) : setModal(true) }} />
         </div>
-        <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold`} ref={popUpRef}>
+        <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold space-y-2`}>
           <Link href={"/"} >
-            <li className={`${router.pathname === "/" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Home</li>
+            <li className={`flex items-center space-x-2 ${router.pathname === "/" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 cursor-pointer"}`}>
+              <AiFillHome />
+              <span className='text-sm'>Home</span>
+            </li>
           </Link>
           <Link href={"/blog"} >
-            <li className={`${router.pathname === "/blog" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>Blog</li>
+            <li className={`flex items-center space-x-2 ${router.pathname === "/blog" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 cursor-pointer"}`}>
+              <IoReader />
+              <span className='text-sm'>Blogs</span>
+            </li>
           </Link>
           <Link href={"/about"} >
-            <li className={`${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 hover:text-rose-500 hover:scale-110 ease-in-out duration-200 cursor-pointer"}`}>About</li>
+            <li className={`flex items-center space-x-2 ${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 cursor-pointer"}`}>
+              <MdInfo />
+              <span className='text-sm'>About</span>
+            </li>
           </Link>
         </ul>
         <Link href={"/createBlog"}>
