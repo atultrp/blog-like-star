@@ -14,6 +14,7 @@ import { getLocalStorage } from '../helper/utils';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
+import FullPageModal from '../shared/fullpageModal';
 
 
 const BlogItem2 = ({ blogData }) => {
@@ -118,6 +119,13 @@ const BlogItem2 = ({ blogData }) => {
           <TiSocialTwitter className='text-4xl text-rose-400 mr-4 hover:scale-125 ease-in-out duration-200' />
         </TwitterShareButton>
       </div>
+
+      {/* <FullPageModal isOpen={true}>
+        this is a full page modal
+        <button className='bg-blue-800 text-white px-4 py-3'>
+          Yes I'm sure
+        </button>
+      </FullPageModal> */}
     </div>
   )
 }
