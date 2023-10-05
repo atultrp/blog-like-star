@@ -20,7 +20,7 @@ const createBlog = () => {
       time: Date.now()
     }
     await addDoc(dbInstance, { ...blog })
-    router.push(`/fullBlog/?id=${id}`);
+    router.push("/blog")
   }
 
   return (

@@ -12,11 +12,11 @@ export const getDateFormat = () => {
 }
 
 export const getLocalStorage = (key) => {
-  return JSON.parse(localStorage.getItem(key))
+  return JSON.parse(window.localStorage.getItem(key))
 }
 
 export const setLocalStorage = (key, value) => {
-  return localStorage.setItem(key, JSON.stringify(value))
+  return window.localStorage.setItem(key, JSON.stringify(value))
 }
 
 export const sortBlogData = (data) => {
