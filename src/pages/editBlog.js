@@ -29,6 +29,7 @@ const EditBlog = () => {
         category: updatedData?.category,
         content: updatedData?.content,
         title: updatedData?.title,
+        time: Date.now()
       });
       router.push(`/fullBlog/?id=${id}`);
     }
@@ -36,7 +37,6 @@ const EditBlog = () => {
 
   return (
     <div>
-      {/* <h1>Edit Blog</h1> */}
       <CreateBlog handleBlogSubmit={(updatedData) => handleSubmit(updatedData)} autopopulatedData={blog} />
     </div>
   );

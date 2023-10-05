@@ -75,7 +75,7 @@ const CreateBlog = ({ handleBlogSubmit, autopopulatedData }) => {
                 value={values?.title}
                 onChange={(e) => setValues({ ...values, title: e.target.value })}
               />
-              {!values.title && <span class="text-red-500 text-xs italic">This field is required!</span>}
+              {!values?.title && <span class="text-red-500 text-xs italic">This field is required!</span>}
             </div>
           </div>
 
@@ -91,7 +91,7 @@ const CreateBlog = ({ handleBlogSubmit, autopopulatedData }) => {
               value={values?.content}
               onChange={(e) => setValues({ ...values, content: e.target.value })}
             />
-            {!values.content && <span class="text-red-500 text-xs italic">This field is required!</span>}
+            {!values?.content && <span class="text-red-500 text-xs italic">This field is required!</span>}
           </div>
 
           <button type='submit' className='mt-2 px-4 py-2 bg-rose-500 text-white rounded-md hover:bg-rose-600'>Publish</button>

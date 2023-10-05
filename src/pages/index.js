@@ -6,6 +6,7 @@ import axios from 'axios';
 import BlogPage from '../components/Blog/BlogPage';
 import Link from 'next/link';
 import { readBlogData } from '../components/helper/request';
+import { sortBlogData } from '../components/helper/utils';
 
 export default function Home() {
   const [quotesData, setQuotesData] = useState([])
@@ -14,7 +15,7 @@ export default function Home() {
   // Reading data from firebase
   useEffect(() => {
     readBlogData().then((data) => {
-      setAllBlogData(data)
+      setAllBlogData(sortBlogData(data))
     })
   }, [])
 
