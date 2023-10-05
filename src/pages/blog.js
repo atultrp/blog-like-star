@@ -12,7 +12,6 @@ const blog = () => {
       setAllBlogData(sortBlogData(data))
     })
   }, [])
-  console.log('allBlogData', allBlogData)
 
   return (
     <>

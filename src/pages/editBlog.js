@@ -22,7 +22,6 @@ const EditBlog = () => {
   }, [id])
 
   const handleSubmit = async (updatedData) => {
-    console.log("updatedData", updatedData)
     if (updatedData) {
       updateDoc(doc(database, "blogsData", id), {
         author: updatedData?.author,

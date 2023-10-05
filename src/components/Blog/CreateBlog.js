@@ -20,7 +20,6 @@ const CreateBlog = ({ handleBlogSubmit, autopopulatedData }) => {
     if (data) {
       blog["category"] = blog?.category || 'General'
       blog["author"] = blog?.author || 'Anonymous'
-      console.log("blog", blog)
       handleBlogSubmit(blog)
     }
   };

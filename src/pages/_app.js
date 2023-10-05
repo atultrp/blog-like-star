@@ -10,13 +10,13 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if (getLocalStorage('user')) {
-      console.log('user is logged in', getLocalStorage('user'))
+      console.log('user is logged in')
     } else {
       let newUser = {
         userID: 'blogStar' + Date.now()
       }
       setLocalStorage('user', JSON.stringify(newUser))
-      console.log('user is not logged in', getLocalStorage('user'))
+      console.log('user is not logged in')
     }
   }, [])
 
