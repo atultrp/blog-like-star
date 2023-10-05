@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc'
 import { BsWhatsapp } from 'react-icons/bs'
 import { TiSocialTwitter } from 'react-icons/ti'
@@ -6,16 +6,29 @@ import {
   WhatsappShareButton,
   TwitterShareButton,
 } from 'next-share';
-
+import { HiDotsVertical } from 'react-icons/hi'
 import { useRouter } from 'next/router';
 import { doc, updateDoc } from 'firebase/firestore';
 import { database } from '../../firebase/config'
+import { getLocalStorage } from '../helper/utils';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
+import { AiTwotoneEdit } from 'react-icons/ai';
+import { MdDelete } from 'react-icons/md';
 
 
 const BlogItem2 = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
   const [likeCount, setLikeCount] = useState(parseInt(blogData?.likes))
   const router = useRouter();
+  const user = getLocalStorage('user')
+  const [openOptions, setOpenOptions] = useState(false)
+  const optionRef = useRef();
+
+  useOnClickOutside(optionRef, () => {
+    setOpenOptions(false)
+  });
+
+  // handling like and unlike
 
   const handleLikeClick = () => {
     setLikeState(false)
@@ -36,6 +49,8 @@ const BlogItem2 = ({ blogData }) => {
     updateLikeCount()
   }, [likeCount])
 
+  // handling read more click
+
   const handleReadMoreClick = (id) => {
     router.push(`/fullBlog/?id=${id}`)
   }
@@ -52,7 +67,27 @@ const BlogItem2 = ({ blogData }) => {
           </span>
         </div>
         {/* Category */}
-        <div className=" py-1 px-2 rounded bg-gradient-to-t from-rose-500 to-pink-400 text-white text-xs font-medium tracking-widest uppercase">{blogData.category}</div>
+        <div className='flex items-center space-x-4'>
+          <div className="py-1 px-2 rounded bg-gradient-to-t from-rose-500 to-pink-400 text-white text-xs font-medium tracking-widest uppercase">{blogData.category}</div>
+          {user?.userID === blogData?.userID && <div ref={optionRef}>
+            <HiDotsVertical className='text-rose-500 font-bold text-xl cursor-pointer' onClick={() => { setOpenOptions(!openOptions) }} />
+            {openOptions && <div className='relative'>
+              <div className="absolute right-0 overflow-hidden w-32 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                <div
+                  className="flex items-center space-x-2 py-2 px-3 cursor-pointer hover:bg-gradient-to-t from-rose-500 to-pink-400 hover:text-white"
+                  onClick={() => router.push(`/editBlog/?id=${blogData?.id}`)}
+                >
+                  <AiTwotoneEdit />
+                  <span className='text-sm font-medium'>Edit</span>
+                </div>
+                <div className="flex items-center space-x-2 py-2 px-3 cursor-pointer hover:bg-gradient-to-t from-rose-500 to-pink-400 hover:text-white">
+                  <MdDelete />
+                  <span className='text-sm font-medium'>Delete</span>
+                </div>
+              </div>
+            </div>}
+          </div>}
+        </div>
       </div>
 
       {/* Title */}

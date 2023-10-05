@@ -48,7 +48,9 @@ const Header = () => {
       {/* Mobile */}
       <nav className="md:hidden py-3 px-4 shadow-md sticky top-0 z-50 items-center bg-white" ref={popUpRef}>
         <div className=" flex justify-between items-center">
-          <h1 className="text-2xl font-bold uppercase cursor-pointer items-center custom-font tracking-widest text-transparent bg-clip-text bg-gradient-to-tr from-green-300 via-blue-500 to-green-300">Blog Like Star</h1>
+          <Link href={"/"} >
+            <h1 className="text-2xl font-bold uppercase cursor-pointer items-center custom-font tracking-widest text-transparent bg-clip-text bg-gradient-to-tr from-green-300 via-blue-500 to-green-300">Blog Like Star</h1>
+          </Link>
           <HiMenuAlt1 className="text-4xl text-rose-500" onClick={() => { modal ? setModal(false) : setModal(true) }} />
         </div>
         <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold space-y-2`}>

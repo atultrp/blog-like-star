@@ -4,32 +4,23 @@ import TextArea from '../shared/TextArea'
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/router';
 
-const CreateBlog = ({ handleBlogSubmit }) => {
-
-  // 1. Author
-  // 2. Category
-  // 3. Avatar
-  // 4. Title of the Blog
-  // 5. Content of the Blog
+const CreateBlog = ({ handleBlogSubmit, autopopulatedData }) => {
 
   const router = useRouter();
+  const [values, setValues] = useState({})
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    // data && fetch("/api/save-blog", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // });
-    // router.push('/blog');
-    let blog = { ...data }
+  useEffect(() => {
+    setValues(autopopulatedData)
+  }, [autopopulatedData])
 
+  const onSubmit = (data) => {
+    let blog = { ...data }
     if (data) {
       blog["category"] = blog?.category || 'General'
       blog["author"] = blog?.author || 'Anonymous'
+      console.log("blog", blog)
       handleBlogSubmit(blog)
     }
   };
@@ -52,6 +43,8 @@ const CreateBlog = ({ handleBlogSubmit }) => {
                 {...register("author", {
                   maxLength: 80
                 })}
+                value={values?.author}
+                onChange={(e) => setValues({ ...values, author: e.target.value })}
               />
               {errors.author && <span class="text-red-500 text-xs italic">80 Characters Only!</span>}
             </div>
@@ -65,6 +58,8 @@ const CreateBlog = ({ handleBlogSubmit }) => {
                 {...register("category", {
                   maxLength: 40
                 })}
+                value={values?.category}
+                onChange={(e) => setValues({ ...values, category: e.target.value })}
               />
             </div>
 
@@ -77,8 +72,10 @@ const CreateBlog = ({ handleBlogSubmit }) => {
                 {...register("title", {
                   required: true,
                 })}
+                value={values?.title}
+                onChange={(e) => setValues({ ...values, title: e.target.value })}
               />
-              {errors.title && <span class="text-red-500 text-xs italic">This field is required!</span>}
+              {!values.title && <span class="text-red-500 text-xs italic">This field is required!</span>}
             </div>
           </div>
 
@@ -91,8 +88,10 @@ const CreateBlog = ({ handleBlogSubmit }) => {
               {...register("content", {
                 required: true,
               })}
+              value={values?.content}
+              onChange={(e) => setValues({ ...values, content: e.target.value })}
             />
-            {errors.content && <span class="text-red-500 text-xs italic">This field is required!</span>}
+            {!values.content && <span class="text-red-500 text-xs italic">This field is required!</span>}
           </div>
 
           <button type='submit' className='mt-2 px-4 py-2 bg-rose-500 text-white rounded-md hover:bg-rose-600'>Publish</button>

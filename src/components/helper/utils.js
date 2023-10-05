@@ -10,3 +10,11 @@ export const getDateFormat = () => {
   const year = d.getFullYear()
   return `${date}th ${month} ${year}`
 }
+
+export const getLocalStorage = (key) => {
+  return JSON.parse(localStorage.getItem(key))
+}
+
+export const setLocalStorage = (key, value) => {
+  return localStorage.setItem(key, JSON.stringify(value))
+}
