@@ -28,7 +28,7 @@ const CreateBlog = ({ handleBlogSubmit, autopopulatedData }) => {
 
   return (
     <div className='md:mx-16 my-8 mx-6'>
-      <h2 className='text-2xl custom-font text-rose-400 uppercase'>Create your own Blog.</h2>
+      <h2 className='text-2xl custom-font text-rose-400 uppercase'>{autopopulatedData ? "Edit your Blog" : "Create your own Blog."}</h2>
 
       <div>
         <form className='my-5' onSubmit={handleSubmit(onSubmit)}>
