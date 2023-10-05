@@ -64,14 +64,14 @@ const BlogItem2 = ({ blogData }) => {
       {/* Bottom part */}
       <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
         {/* Read more */}
-        <a onClick={() => handleReadMoreClick(blogData?.id)} className="text-indigo-500 inline-flex items-center cursor-pointer">Read More
+        <a onClick={() => handleReadMoreClick(blogData?.id)} className="text-indigo-500 inline-flex items-center cursor-pointer duration-300 hover:translate-x-1">Read More
           <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"></path>
             <path d="M12 5l7 7-7 7"></path>
           </svg>
         </a>
         <span className="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1">
-          {likeState ? <FcLike className='text-2xl cursor-pointer' onClick={handleLikeClick} /> : <FcLikePlaceholder className='text-2xl cursor-pointer' onClick={handleUnlikeClick} />}
+          {likeState ? <FcLike className='text-2xl cursor-pointer hover:scale-125 duration-300' onClick={() => handleLikeClick()} /> : <FcLikePlaceholder className='text-2xl cursor-pointer hover:scale-125 duration-300' onClick={handleUnlikeClick} />}
           <span className='ml-1'>{likeCount}</span>
         </span>
         <WhatsappShareButton
