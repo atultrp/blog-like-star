@@ -10,7 +10,7 @@ import { HiDotsVertical } from 'react-icons/hi'
 import { useRouter } from 'next/router';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { database } from '../../firebase/config'
-import { getLocalStorage } from '../helper/utils';
+import { getLocalStorage, setLocalStorage } from '../helper/utils';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
@@ -30,13 +30,12 @@ const BlogItem2 = ({ blogData, setIsAnyChange }) => {
 
   // handling like and unlike
 
-  const handleLikeClick = () => {
-    setLikeState(false)
-    setLikeCount(likeCount - 1)
-  }
-  const handleUnlikeClick = () => {
-    setLikeState(true)
-    setLikeCount(likeCount + 1)
+  const handleLikeClick = (likeFlag) => {
+    setLikeState(likeFlag)
+    setLikeCount(likeFlag ? likeCount + 1 : likeCount - 1)
+    let userData = getLocalStorage('user')
+    setLocalStorage('user', { ...userData, [blogData?.id]: likeFlag })
+    console.log(userData, 'blog data like ')
   }
 
   const updateLikeCount = () => {
@@ -48,6 +47,15 @@ const BlogItem2 = ({ blogData, setIsAnyChange }) => {
   useEffect(() => {
     updateLikeCount()
   }, [likeCount])
+
+  useEffect(() => {
+    let userData = getLocalStorage('user')
+    if (userData[blogData?.id]) {
+      setLikeState(true)
+    } else {
+      setLikeState(false)
+    }
+  }, [])
 
   // handling read more click
 
@@ -141,7 +149,7 @@ const BlogItem2 = ({ blogData, setIsAnyChange }) => {
           </svg>
         </a>
         <span className="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1">
-          {likeState ? <FcLike className='text-2xl cursor-pointer hover:scale-125 duration-300' onClick={() => handleLikeClick()} /> : <FcLikePlaceholder className='text-2xl cursor-pointer hover:scale-125 duration-300' onClick={handleUnlikeClick} />}
+          {likeState ? <FcLike className='text-2xl cursor-pointer hover:scale-125 duration-300' onClick={() => handleLikeClick(false)} /> : <FcLikePlaceholder className='text-2xl cursor-pointer hover:scale-125 duration-300' onClick={() => handleLikeClick(true)} />}
           <span className='ml-1'>{likeCount}</span>
         </span>
         <WhatsappShareButton

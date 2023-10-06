@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BlogItem2 from './BlogItem2'
 import useSWR from 'swr';
+import { getLocalStorage, setLocalStorage } from '../helper/utils';
 
 const BlogPage = ({ data, setIsAnyChange }) => {
+
+  useEffect(() => {
+    let userData = getLocalStorage('user')
+    data?.map((item) => {
+      if (!userData[item?.id]) {
+        userData[item?.id] = false
+      }
+    })
+    setLocalStorage('user', userData)
+    console.log(data, userData)
+  }, [])
 
   return (
     <div className="px-4 md:px-16 py-10 md:py-6">
