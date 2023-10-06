@@ -51,23 +51,23 @@ const Header = () => {
           <Link href={"/"} >
             <h1 className="text-2xl font-bold uppercase cursor-pointer items-center custom-font tracking-widest text-transparent bg-clip-text bg-gradient-to-tr from-green-300 via-blue-500 to-green-300">Blog Like Star</h1>
           </Link>
-          <HiMenuAlt1 className="text-4xl text-rose-500" onClick={() => { modal ? setModal(false) : setModal(true) }} />
+          <HiMenuAlt1 className="text-4xl text-rose-500" onClick={() => { setModal(!modal) }} />
         </div>
-        <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-md rounded bg-white font-semibold space-y-2`}>
-          <Link href={"/"} >
-            <li className={`flex items-center space-x-2 ${router.pathname === "/" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 cursor-pointer"}`}>
+        <ul className={`${modal ? 'block' : 'hidden'} absolute right-2 px-4 py-4 shadow-lg rounded bg-white font-semibold space-y-2 ring-1 ring-black ring-opacity-5`}>
+          <Link href={"/"}>
+            <li className={`flex items-center space-x-2 ${router.pathname === "/" ? "opacity-100 text-white bg-gradient-to-t from-rose-500 to-pink-400 rounded-md px-2 py-1 cursor-pointer" : "px-2 opacity-70 cursor-pointer"}`}>
               <AiFillHome />
               <span className='text-sm'>Home</span>
             </li>
           </Link>
-          <Link href={"/blog"} >
-            <li className={`flex items-center space-x-2 ${router.pathname === "/blog" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 cursor-pointer"}`}>
+          <Link href={"/blog"}>
+            <li className={`flex items-center space-x-2 ${router.pathname === "/blog" ? "opacity-100 text-white bg-gradient-to-t from-rose-500 to-pink-400 rounded-md px-2 py-1 cursor-pointer" : "px-2 opacity-70 cursor-pointer"}`}>
               <IoReader />
               <span className='text-sm'>Blogs</span>
             </li>
           </Link>
-          <Link href={"/about"} >
-            <li className={`flex items-center space-x-2 ${router.pathname === "/about" ? "opacity-100 text-rose-500 cursor-pointer" : "opacity-70 cursor-pointer"}`}>
+          <Link href={"/about"}>
+            <li className={`flex items-center space-x-2 ${router.pathname === "/about" ? "opacity-100 text-white bg-gradient-to-t from-rose-500 to-pink-400 rounded-md px-2 py-1 cursor-pointer" : "px-2 opacity-70 cursor-pointer"}`}>
               <MdInfo />
               <span className='text-sm'>About</span>
             </li>
