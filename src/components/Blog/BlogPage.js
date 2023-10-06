@@ -2,12 +2,7 @@ import React from 'react'
 import BlogItem2 from './BlogItem2'
 import useSWR from 'swr';
 
-const BlogPage = ({ data }) => {
-
-  // const { data, error } = useSWR("/api/get-blogs", (url) =>
-  //   fetch(url).then((res) => res.json())
-  // );
-
+const BlogPage = ({ data, setIsAnyChange }) => {
 
   return (
     <div className="px-4 md:px-16 py-10 md:py-6">
@@ -15,7 +10,7 @@ const BlogPage = ({ data }) => {
       <p className='text-base mt-1 text-center md:text-left'>Take a look in recent Blogs.</p>
       <div className='my-4 flex flex-wrap'>
         {data && data?.map((item) => {
-          return <BlogItem2 blogData={item} />
+          return <BlogItem2 blogData={item} setIsAnyChange={setIsAnyChange} />
         })}
       </div>
     </div>

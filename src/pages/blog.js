@@ -5,17 +5,18 @@ import { sortBlogData } from '../components/helper/utils'
 
 const blog = () => {
   const [allBlogData, setAllBlogData] = useState([])
+  const [isAnyChange, setIsAnyChange] = useState(false)
 
   // Reading data from firebase
   useEffect(() => {
     readBlogData().then((data) => {
       setAllBlogData(sortBlogData(data))
     })
-  }, [])
+  }, [isAnyChange])
 
   return (
     <>
-      <BlogPage data={allBlogData} />
+      <BlogPage data={allBlogData} setIsAnyChange={setIsAnyChange} />
     </>
   )
 }

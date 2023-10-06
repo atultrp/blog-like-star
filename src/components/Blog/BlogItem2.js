@@ -8,22 +8,21 @@ import {
 } from 'next-share';
 import { HiDotsVertical } from 'react-icons/hi'
 import { useRouter } from 'next/router';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { database } from '../../firebase/config'
 import { getLocalStorage } from '../helper/utils';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
-import FullPageModal from '../shared/fullpageModal';
 
-
-const BlogItem2 = ({ blogData }) => {
+const BlogItem2 = ({ blogData, setIsAnyChange }) => {
   const [likeState, setLikeState] = useState(false)
   const [likeCount, setLikeCount] = useState(parseInt(blogData?.likes))
   const router = useRouter();
   const user = getLocalStorage('user')
   const [openOptions, setOpenOptions] = useState(false)
   const optionRef = useRef();
+  const [openConfirmationPopup, setOpenConfirmationPopup] = useState(false)
 
   useOnClickOutside(optionRef, () => {
     setOpenOptions(false)
@@ -56,6 +55,16 @@ const BlogItem2 = ({ blogData }) => {
     router.push(`/fullBlog/?id=${id}`)
   }
 
+  // handling delete blog
+
+  const deleteBlog = async () => {
+    await deleteDoc(doc(database, "blogsData", blogData?.id))
+    console.log('delete heya')
+    setOpenConfirmationPopup(false)
+    setOpenOptions(false)
+    setIsAnyChange(true)
+  }
+
   return (
     <div className="px-2 py-4 md:px-12 md:py-6 my-2 min-w-full md:min-w-0 md:w-1/2 flex flex-col items-start md:hover:shadow-xl rounded-2xl">
       {/* User Details */}
@@ -70,7 +79,7 @@ const BlogItem2 = ({ blogData }) => {
         {/* Category */}
         <div className='flex items-center space-x-4'>
           <div className="py-1 px-2 rounded bg-gradient-to-t from-rose-500 to-pink-400 text-white text-xs font-medium tracking-widest uppercase">{blogData.category}</div>
-          {user?.userID === blogData?.userID && <div ref={optionRef}>
+          {user?.userID === blogData?.userID && <div ref={optionRef} className='relative'>
             <HiDotsVertical className='text-rose-500 font-bold text-xl cursor-pointer' onClick={() => { setOpenOptions(!openOptions) }} />
             {openOptions && <div className='relative'>
               <div className="absolute right-0 overflow-hidden w-32 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
@@ -81,10 +90,35 @@ const BlogItem2 = ({ blogData }) => {
                   <AiTwotoneEdit />
                   <span className='text-sm font-medium'>Edit</span>
                 </div>
-                <div className="flex items-center space-x-2 py-2 px-3 cursor-pointer hover:bg-gradient-to-t from-rose-500 to-pink-400 hover:text-white">
+                <div
+                  className="flex items-center space-x-2 py-2 px-3 cursor-pointer hover:bg-gradient-to-t from-rose-500 to-pink-400 hover:text-white"
+                  onClick={() => setOpenConfirmationPopup(true)}
+                >
                   <MdDelete />
                   <span className='text-sm font-medium'>Delete</span>
                 </div>
+              </div>
+            </div>}
+            {openConfirmationPopup && <div className='absolute right-0 overflow-hidden w-60 px-3 py-3 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5'>
+              <p className='text-sm pb-3'>
+                Are you sure you want to delete this blog?
+              </p>
+              <div className='flex justify-end space-x-4'>
+                <button
+                  className='py-1 px-2 rounded bg-gradient-to-t from-rose-500 to-pink-400 text-white text-xs font-medium tracking-widest'
+                  onClick={() => {
+                    setOpenConfirmationPopup(false)
+                    setOpenOptions(false)
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  className='py-1 px-2 rounded bg-gradient-to-t from-violet-500 to-violet-400 text-white text-xs font-medium tracking-widest'
+                  onClick={() => deleteBlog()}
+                >
+                  Delete
+                </button>
               </div>
             </div>}
           </div>}
@@ -119,13 +153,6 @@ const BlogItem2 = ({ blogData }) => {
           <TiSocialTwitter className='text-4xl text-rose-400 mr-4 hover:scale-125 ease-in-out duration-200' />
         </TwitterShareButton>
       </div>
-
-      {/* <FullPageModal isOpen={true}>
-        this is a full page modal
-        <button className='bg-blue-800 text-white px-4 py-3'>
-          Yes I'm sure
-        </button>
-      </FullPageModal> */}
     </div>
   )
 }

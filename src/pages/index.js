@@ -11,13 +11,14 @@ import { sortBlogData } from '../components/helper/utils';
 export default function Home() {
   const [quotesData, setQuotesData] = useState([])
   const [allBlogData, setAllBlogData] = useState([])
+  const [isAnyChange, setIsAnyChange] = useState(false)
 
   // Reading data from firebase
   useEffect(() => {
     readBlogData().then((data) => {
       setAllBlogData(sortBlogData(data))
     })
-  }, [])
+  }, [isAnyChange])
 
   // Quotes API
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function Home() {
           </p>
         </div>
 
-        <BlogPage data={allBlogData} />
+        <BlogPage data={allBlogData} setIsAnyChange={setIsAnyChange} />
       </div>
     </div>
   )
