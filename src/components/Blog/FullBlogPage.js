@@ -31,7 +31,6 @@ const FullBlogPage = ({ blogData }) => {
     setLikeCount(likeFlag ? likeCount + 1 : likeCount - 1)
     let userData = getLocalStorage('user')
     setLocalStorage('user', { ...userData, [blogData?.id]: likeFlag })
-    console.log("heya", blogData?.id, likeCount, userData, likeFlag)
   }
 
   const updateLikeCount = () => {
