@@ -18,18 +18,20 @@ import {
 import Link from 'next/link';
 import { doc, updateDoc } from 'firebase/firestore';
 import { database } from '../../firebase/config'
+import { getLocalStorage, setLocalStorage } from '../helper/utils';
 
 const FullBlogPage = ({ blogData }) => {
   const [likeState, setLikeState] = useState(false)
   const [likeCount, setLikeCount] = useState(parseInt(blogData?.likes))
 
-  const handleLikeClick = () => {
-    setLikeState(false)
-    setLikeCount(likeCount - 1)
-  }
-  const handleUnlikeClick = () => {
-    setLikeState(true)
-    setLikeCount(likeCount + 1)
+  // handling like and unlike
+
+  const handleLikeClick = (likeFlag) => {
+    setLikeState(likeFlag)
+    setLikeCount(likeFlag ? likeCount + 1 : likeCount - 1)
+    let userData = getLocalStorage('user')
+    setLocalStorage('user', { ...userData, [blogData?.id]: likeFlag })
+    console.log("heya", blogData?.id, likeCount, userData, likeFlag)
   }
 
   const updateLikeCount = () => {
@@ -41,6 +43,15 @@ const FullBlogPage = ({ blogData }) => {
   useEffect(() => {
     updateLikeCount()
   }, [likeCount])
+
+  useEffect(() => {
+    let userData = getLocalStorage('user')
+    if (userData[blogData?.id]) {
+      setLikeState(true)
+    } else {
+      setLikeState(false)
+    }
+  }, [])
 
   return (
     <div className='mx-3 px-3 md:mx-10 md:px-2 my-4'>
@@ -59,7 +70,7 @@ const FullBlogPage = ({ blogData }) => {
           {/* Like and Share */}
           <div className="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
             <span className="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1">
-              {likeState ? <FcLike className='text-2xl cursor-pointer' onClick={handleLikeClick} /> : <FcLikePlaceholder className='text-2xl cursor-pointer' onClick={handleUnlikeClick} />}
+              {likeState ? <FcLike className='text-2xl cursor-pointer' onClick={() => handleLikeClick(false)} /> : <FcLikePlaceholder className='text-2xl cursor-pointer' onClick={() => handleLikeClick(true)} />}
               <span className='ml-1'>{likeCount}</span>
             </span>
             <WhatsappShareButton
