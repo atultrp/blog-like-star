@@ -9,14 +9,11 @@ function MyApp({ Component, pageProps }) {
   // Authentication
 
   useEffect(() => {
-    if (getLocalStorage('user')) {
-      console.log('user is logged in')
-    } else {
+    if (!getLocalStorage('user')) {
       let newUser = {
         userID: 'blogStar' + Date.now()
       }
       setLocalStorage('user', JSON.stringify(newUser))
-      console.log('user is not logged in')
     }
   }, [])
 

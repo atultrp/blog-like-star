@@ -13,7 +13,6 @@ const BlogPage = ({ data, setIsAnyChange }) => {
       }
     })
     setLocalStorage('user', userData)
-    console.log(data, userData)
   }, [])
 
   return (

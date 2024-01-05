@@ -35,7 +35,6 @@ const BlogItem2 = ({ blogData, setIsAnyChange }) => {
     setLikeCount(likeFlag ? likeCount + 1 : likeCount - 1)
     let userData = getLocalStorage('user')
     setLocalStorage('user', { ...userData, [blogData?.id]: likeFlag })
-    console.log(userData, 'blog data like ')
   }
 
   const updateLikeCount = () => {
@@ -67,7 +66,6 @@ const BlogItem2 = ({ blogData, setIsAnyChange }) => {
 
   const deleteBlog = async () => {
     await deleteDoc(doc(database, "blogsData", blogData?.id))
-    console.log('delete heya')
     setOpenConfirmationPopup(false)
     setOpenOptions(false)
     setIsAnyChange(true)
