@@ -11,16 +11,16 @@ const BlogItem = ({ blogData }) => {
         </div>
         <div className="flex-grow">
           <h2 className="flex items-center mb-3">
-            <div className='text-sm font-semibold uppercase'>{blogData.author}</div>
+            <div className='text-sm font-semibold uppercase'>{blogData?.author}</div>
             <VscDebugStackframeDot />
             <div className='text-xs'>{blogData.date}</div>
           </h2>
           <div>
             <div className='text-lg font-semibold'>
-              {blogData.title}
+              {blogData?.title}
             </div>
             <p className="leading-relaxed text-base line-clamp-3">
-              {blogData.description}
+              {blogData?.description}
             </p>
             <Link href={""}>
               <div className="mt-3 text-white font-bold inline-flex items-center cursor-pointer">
